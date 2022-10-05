@@ -15,15 +15,6 @@ int main()
   std::vector<std::complex<double>> coeffs,
                                     zeros;
 
-
-  std::vector<std::complex<double>> testCoeffs = {{-1, 0}, {0, 0}, {1, 0}},
-                                    testZeros;
-  ab::ZeroFinder<double> *solver = new ab::ZeroFinder<double>(testCoeffs);
-  solver->compZeros();
-  testZeros = solver->getZeros();
-  printf("testZeros[0] = %f\n", testZeros[0].real());
-  printf("testZeros[1] = %f\n", testZeros[1].real());
-
   // seed rand
   std::srand(8008335);
 
@@ -80,5 +71,5 @@ int main()
   }
 
   if (passed) printf("All tests passed! :)\n");
-
+//
 }

@@ -51,6 +51,7 @@ namespace aberth
   //----------------------------------------------------------------------------//
   //! use Aberth's method to approximate zeros
   //! @param  verbose  whether or not extra info will be printed
+  //! returns true iff all zeros have converged to within tol_
   //----------------------------------------------------------------------------//
   template <typename T>
   bool ZeroFinder<T>::compZeros(const bool verbose)
