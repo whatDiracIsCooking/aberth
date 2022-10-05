@@ -12,8 +12,7 @@ Assuming that roots have converged, they are sorted in non-decreasing magnitude.
 
 ### Example 1
 The zeros of `p(x) = x^2 - x - 6` are approximated as follows:
-
-`
+```
 // declare vector for zeros and initialize coeffs
 std::vector<std::complex<double>> zeros, coeffs = {{-6, 0}, {-1, 0}, {1, 0}};
 
@@ -23,7 +22,7 @@ aberth::ZeroFinder<double> *finder = new aberth::ZeroFinder<double>(coeffs);
 // compute then copy zeros
 finder->compZeros();
 zeros = finder->getZeros();
-`
+```
 
 ### Inital guess generation
 There are two methdos for inital guess generation, "rand" and "symm".
@@ -38,12 +37,12 @@ at the origin.
 ### Example 2
 The complex roots of `p(x) = x^4 - 1` are computed below, with tolerance set to `1e-12`,
 maximum iterations set to `100`, and initial guesses generated with "symm". Verbose messages are printed as well.
-`
+```
 std::vector<std::complex<double>> zeros, coeffs = {{-1, 0}, {0, 0}, {0,0}, {0,0}, {1, 0}};
 aberth::ZeroFinder<double> *finder = new aberth::ZeroFinder<double>(coeffs, 1e-12, 100, "symm");
 finder->compZeros(true);
 zeros = finder->getZeros();
-`
+```
 
 Default values for the tolerance, maximum iterations, and method of generating initial guess are detailed in `aberth.h`.
 
