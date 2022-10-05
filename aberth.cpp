@@ -240,6 +240,7 @@ namespace aberth
   //! update zeros
   //! use of reverse polynomial comes from
   //! Bini, Numerical Algorithms 13 (1996) 179-200
+  //! https://link.springer.com/article/10.1007/BF02207694
   //----------------------------------------------------------------------------//
   template <typename T>
   void ZeroFinder<T>::newtonStep()

@@ -71,5 +71,4 @@ int main()
   }
 
   if (passed) printf("All tests passed! :)\n");
-//
 }

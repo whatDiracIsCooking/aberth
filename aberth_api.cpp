@@ -26,6 +26,9 @@ namespace aberth
     initMode_(initMode)
   {
 
+    // degree must be at least 1
+    assert(2 <= coeffs.size() and "Degree of polynomial must be at least 1");
+
     // tolerance must be above smallest positive double
     assert(DBL_MIN <= tol and "tol must be at least DBL_MIN");
 
