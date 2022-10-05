@@ -2,11 +2,13 @@
 
 ### Summary
 This implements a root finding algorithm for univariate polynomials of finite degree.
-One provides the coefficients of their polynomial `p(x)` as a `std::vector<std::complex<T>>` where `T` is either `float` or `double`.
+One provides the coefficients of their degree `n` polynomial `p(x)` as a `std::vector<std::complex<T>>`
+where `T` is either `float` xor `double`.
 Roots are computed and stored in a `std::vector<std::complex<T>>`.
 
-The method works by generating an initial guess for each root, then [each guess is updated](https://en.wikipedia.org/wiki/Aberth_method)
-until they are all converged (or the maximum iterations are reached).
+The method works by generating an initial guess for each root, then
+[each guess is updated](https://en.wikipedia.org/wiki/Aberth_method)
+until they are all converged (or the max number of iterations is reached).
 
 Convergence is obtained when `|p(x)| < tolerance` for each root `x`.
 Roots are sorted by non-decreasing magnitude.
@@ -26,12 +28,12 @@ finder->compZeros();
 zeros = finder->getZeros();
 ```
 
-### Inital guess generation
-There are two methods for inital guess generation, `rand` and `symm`.
+### Initial guess generation
+There are two methods for initial guess generation: `rand` and `symm`.
 In either case, [Cauchy's bound](https://en.wikipedia.org/wiki/Geometrical_properties_of_polynomial_roots) `R`
 on the magnitude of all zeros is computed.
-Then, for the default method `rand`, a guess with magnitude bounded by `R`
-is produced for each zero. Alternatively, for `symm`, a guess `z` is produced with `|z| <= R`.
+Then, for the default method `rand`, a random guess with magnitude bounded by `R`
+is selected for each zero. Alternatively, for `symm`, a guess `z` is produced with `|z| <= R`.
 Subsequent guesses are produced by setting `z <- z * z / |z|`, creating a regular n-gon centered at the origin.
 
 
@@ -52,5 +54,5 @@ The implementation here isn't at all sophisticated. It's best used for **friendl
 * Roots are well-separated or exactly degenerate 
 * Tolerance is at least `1e-12`
 * Neither overflow nor underflow occurs when evaluating the polynomial at points whose magnitude is at most Cauchy's bound
-  * Degree is less than `100`
+  * `n <= 100`
   * Coefficients are well-within numeric limits defined in the `<limits>` header
