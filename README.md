@@ -48,8 +48,8 @@ Default values for the tolerance, maximum iterations, and method of generating i
 
 ### Recommended use
 The implementation here isn't at all sophisticated. It's best used for **friendly** polynomials:
--Roots are well-separated or exactly degenerate 
--Tolerance is at least `1e-12`
--Neither overflow nor underflow occurs when evaluating the polynomial at points whose magnitude is bounded by `R`.
-  -Degree is less than `100`
-  -Coefficients are well-within numeric limits defined in `<limits>`
+* Roots are well-separated or exactly degenerate 
+* Tolerance is at least `1e-12`
+* Neither overflow nor underflow occurs when evaluating the polynomial at points whose magnitude is bounded by `R`.
+  * Degree is less than `100`
+  * Coefficients are well-within numeric limits defined in `<limits>`
